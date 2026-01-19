@@ -5,7 +5,7 @@ Cucumber, RestAssured (API), and Extent reports. The tests exercise SauceDemo UI
 flows and a DummyJSON API.
 
 **Repository snapshot / download**
-- ZIP of the repository with the added documentation and comments: [playwright-completed.zip](playwright-completed.zip)
+- ZIP of the repository with the added documentation and comments: [playwright-completed.zip](https://github.com/user-attachments/files/24715731/playwright-completed.zip)
 
 **Prerequisites**
 - JDK 11 or later installed and `JAVA_HOME` configured

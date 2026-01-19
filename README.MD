@@ -1,4 +1,4 @@
-# SauceDemo Playwright Java Cucumber Allure
+# SauceDemo - Playwright Java Cucumber ExtentReport Framework
 
 This repository contains a small test automation framework using Playwright Java,
 Cucumber, RestAssured (API), and Extent reports. The tests exercise SauceDemo UI
@@ -76,7 +76,3 @@ Note: In this execution environment I can run Maven and provide the console log 
 - Page objects (LoginPage, ProductsPage, CartPage) keep UI interactions encapsulated so steps read as business behavior — this improves readability and reduces duplication.
 - Hooks centralize Playwright lifecycle management and reporting integration so resource setup/teardown and attachments are handled consistently.
 - Using system properties for runtime flags (like `headless`) makes CI and local runs flexible without changing source files.
-
-If you want, I can now:
-- Commit these comment changes and create `playwright-completed.zip` in the repository root.
-- Run `mvn clean test -Dheadless=false` here and save the console output to `maven_test_run.log` and produce the ZIP.

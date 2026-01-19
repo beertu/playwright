@@ -1,0 +1,132 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion> <groupId>com.example</groupId> <artifactId>saucedemo-playwright-java</artifactId> <version>1.0-SNAPSHOT</version>
+
+    <properties>
+<maven.compiler.source>21</maven.compiler.source>
+<maven.compiler.target>21</maven.compiler.target>
+<playwright.version>1.44.0</playwright.version> 
+<cucumber.version>7.11.0</cucumber.version> 
+<junit.version>4.13.2</junit.version> 
+<allure.version>2.17.3</allure.version>
+    </properties>
+
+
+<dependencies> 
+<!-- Playwright Java --> 
+<dependency> 
+<groupId>com.microsoft.playwright</groupId> 
+<artifactId>playwright</artifactId> 
+<version>${playwright.version}</version> 
+</dependency> 
+
+<!-- Cucumber --> 
+<dependency> 
+<groupId>io.cucumber</groupId> 
+<artifactId>cucumber-java</artifactId> 
+<version>${cucumber.version}</version> 
+</dependency> 
+<dependency> 
+<groupId>io.cucumber</groupId> 
+<artifactId>cucumber-junit</artifactId> 
+<version>${cucumber.version}</version> 
+<scope>test</scope> 
+</dependency> 
+
+<!-- JUnit --> 
+<dependency> 
+<groupId>junit</groupId> 
+<artifactId>junit</artifactId> 
+<version>${junit.version}</version> 
+<scope>test</scope> 
+</dependency> 
+
+<!-- RestAssured for API tests --> 
+<dependency> 
+<groupId>io.rest-assured</groupId> 
+<artifactId>rest-assured</artifactId> 
+<version>5.3.0</version> 
+<scope>test</scope> 
+</dependency> 
+
+<!-- JSON handling --> 
+<dependency> 
+<groupId>com.fasterxml.jackson.core</groupId> 
+<artifactId>jackson-databind</artifactId> 
+<version>2.15.2</version> 
+</dependency> 
+
+<!-- Allure --> 
+<dependency> 
+<groupId>io.qameta.allure</groupId> 
+<artifactId>allure-junit4</artifactId> 
+<version>${allure.version}</version> 
+</dependency> 
+
+<!-- ExtentReports for HTML reporting -->
+<dependency>
+    <groupId>com.aventstack</groupId>
+    <artifactId>extentreports</artifactId>
+    <version>5.0.9</version>
+</dependency>
+
+
+
+<!-- SLF4J simple logger --> 
+<dependency> 
+<groupId>org.slf4j</groupId> 
+<artifactId>slf4j-simple</artifactId> 
+<version>2.0.7</version> 
+</dependency> 
+<!-- Apache Commons Lang for ExceptionUtils.getStackTrace -->
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-lang3</artifactId>
+    <version>3.13.0</version>
+</dependency>
+</dependencies>
+<build> 
+
+    <plugins>
+    <!-- Ensure compilation uses Java 21 -->
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
+        <configuration>
+            <release>21</release>
+        </configuration>
+    </plugin>
+    <!-- Surefire to run tests --> 
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId> 
+        <artifactId>maven-surefire-plugin</artifactId> 
+        <version>3.0.0-M9</version> 
+        <configuration> 
+            <includes> 
+            <include>**/TestRunner.java</include> </includes> 
+            <systemPropertyVariables> 
+            <allure.results.directory>target/allure-results</allure.results.directory> 
+            </systemPropertyVariables> 
+        </configuration> 
+    </plugin> 
+
+<!-- Allure report plugin --> 
+<plugin> 
+    <groupId>io.qameta.allure</groupId> 
+    <artifactId>allure-maven</artifactId> 
+    <version>2.11.2</version> </plugin> 
+    
+    <!-- Playwright CLI download at test phase
+         The playwright-maven-plugin has been removed because it could not be resolved from the configured repositories.
+         To install browsers for tests, run locally before test execution:
+             npx playwright install
+         or force plugin resolution updates with:
+             mvn -U clean test
+    -->
+    </plugins>
+  </build>
+
+</project>
+

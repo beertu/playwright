@@ -17,7 +17,7 @@ flows and a DummyJSON API.
 1. Clone the repo
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/beertu/playwright.git
 cd playwright
 ```
 
